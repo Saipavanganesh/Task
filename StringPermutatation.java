@@ -6,19 +6,24 @@ public class StringPermutatation {
             System.out.print(arr[i]);
         }
     }
-    public static int fact(int num){
-        int fact = 1;
-        for(int i=1; i<=num; i++){
-            fact = fact*i;
-        }
-        return fact;
-    }
     public static void main(String[] args) {
-        String str = "ABC";
+        String str = "ABCD";
+        int a =0;
+        char temp;
         Character [] arr = new Character[str.length()];
         for(int i=0; i<str.length(); i++){
             arr[i]=str.charAt(i);
         }
-        dispArray(arr);
+
+        while(a < str.length()){
+            for(int i=0; i<arr.length-1; i++){
+                dispArray(arr);
+                temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                System.out.println();
+            }
+            a++;
+        }
     }
 }
